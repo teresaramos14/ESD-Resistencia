@@ -1,0 +1,495 @@
+@prefix um: <http://um.es/resource/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix custom: <http://um.es/ontology/custom#> .
+@prefix chebi: <http://purl.obolibrary.org/obo/CHEBI_> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix taxon: <http://uniprot.org/taxonomy/>  .
+@prefix uniprot: <http://purl.uniprot.org/uniprot/> .
+
+
+#Definicion de bacterias
+
+um:Bacteria1 rdf:type taxon:562 ;
+	rdfs:label "Escherichia coli" .
+
+um:Bacteria2 rdf:type taxon:573 ;
+	rdfs:label "Klebsiella pneumoniae" .
+
+um:Bacteria3 rdf:type taxon:1280 ;
+	rdfs:label "Staphylococcus aureus" .
+
+um:Bacteria4 rdf:type taxon:287 ;
+	rdfs:label "Pseudomonas aeruginosa" .
+
+#Definicion de antibioticos
+
+um:Antibiotico1 rdf:type obo:ARO_3000007 ;
+	rdfs:label "β-lactam antibiotic" .
+
+um:Antibiotico2 rdf:type obo:ARO_0000025 ;
+	rdfs:label "Fosfomycin" .
+
+um:Antibiotico3 rdf:type obo:ARO_3000050 ;
+	rdfs:label "Tetracycline antibiotic" .
+
+um:Antibiotico4 rdf:type obo:ARO_3000282 ;
+	rdfs:label "Sulfonamide antibiotic" .
+
+um:Antibiotico5 rdf:type chebi:45924 ;
+	rdfs:label "Trimethoprim" .
+
+um:Antibiotico6 rdf:type chebi:59062 ;
+	rdfs:label "Polymixin" .
+
+um:Antibiotico7 rdf:type chebi:149836 ;
+	rdfs:label "Tigecycline" .
+
+um:Antibiotico8 rdf:type chebi:86324 ;
+	rdfs:label "Quinolone antibiotic" .
+
+um:Antibiotico9 rdf:type chebi:87211 ;
+	rdfs:label "Fluoroquinolone antibiotic" .
+
+um:Antibiotico10 rdf:type obo:ARO_0000028 ;
+	rdfs:label "Vancomycin" .
+
+#Mecanismos de resistencia
+
+um:Mecanismo1  rdf:type obo:ARO_3000203 ;
+	rdfs:label "hydrolysis of beta-lactam antibiotic by metallo-beta-lactamase" .
+
+um:Mecanismo2 rdf:type obo:ARO_3000187 ;
+	rdfs:label "hydrolysis of beta-lactam antibiotic by serine beta-lactamase" .
+
+um:Mecanismo3 rdf:type obo:ARO_3000342 ;
+	rdfs:label "fosfomycin inactivation enzyme" .
+
+um:Mecanismo4 rdf:type obo:ARO_3004247 ;
+	rdfs:label "GlpT with mutation" .
+
+um:Mecanismo5 rdf:type obo:ARO_0010000 ;
+	rdfs:label "antibiotic efflux" .
+
+um:Mecanismo6 rdf:type obo:ARO_0000002 ;
+	rdfs:label "tetracycline-resistant ribosomal protection protein" .
+
+um:Mecanismo7 rdf:type obo:ARO_3000036 ;
+	rdfs:label "tetracycline inactivation enzyme" .
+
+um:Mecanismo8 rdf:type obo:ARO_3004238 ;
+	rdfs:label "sulfonamide resistant sul" .
+
+um:Mecanismo9 rdf:type obo:ARO_3001218 ;
+	rdfs:label "trimethoprim resistant dihydrofolate reductase dfr" .
+
+um:Mecanismo10 rdf:type obo:ARO_3005050 ;
+	rdfs:label "Intrinsic peptide antibiotic resistant Lps" .
+
+um:Mecanismo11 rdf:type obo:ARO_3000213 ;
+	rdfs:label "restructuring of bacterial cell wall conferring antibiotic resistance" .
+
+um:Mecanismo12 rdf:type obo:ARO_3000619 ;
+	rdfs:label "fluoroquinolone resistant parC" .
+
+um:Mecanismo13 rdf:type obo:ARO_3003292 ;
+	rdfs:label "fluoroquinolone resistant gyrA" .
+
+
+
+#Genes/proteinas realacionados
+
+um:gen1 rdf:type uniprot:G8FU17 ;
+	rdfs:label "blaTEM" .
+
+um:gen2 rdf:type uniprot:P00811 ;
+	rdfs:label "ampC" .
+
+um:gen3 rdf:type uniprot:A0A5R8T042 ;
+	rdfs:label "bla" .
+
+um:gen4 rdf:type obo:ARO_3000198 ;
+	rdfs:label "FosX" .	
+
+um:gen5 rdf:type obo:ARO_3000172 ;
+	rdfs:label "FosB" .	
+
+um:gen6 rdf:type obo:ARO_3000423 ;
+	rdfs:label "FomA" .
+
+um:gen7 rdf:type obo:ARO_3000449 ;
+	rdfs:label "FomB" .
+
+um:gen8 rdf:type uniprot:P08194 ;
+	rdfs:label "glpT" .
+
+um:gen9 rdf:type uniprot:Q93K90 ;
+	rdfs:label "tet(A)" .
+
+um:gen10 rdf:type obo:ARO_3000166 ;
+	rdfs:label "tet(B)" .
+
+um:gen11 rdf:type obo:ARO_3000167 ;
+	rdfs:label "tet(C)" .
+
+um:gen12 rdf:type obo:ARO_3000168 ;
+	rdfs:label "tet(D)" .
+
+um:gen13 rdf:type obo:ARO_3000173 ;
+	rdfs:label "tet(E)" .
+
+um:gen14 rdf:type obo:ARO_3000174 ;
+	rdfs:label "tet(G)" .
+
+um:gen15 rdf:type obo:ARO_3000179 ;
+	rdfs:label "tet(L)" .
+
+um:gen16 rdf:type obo:ARO_3000182 ;
+	rdfs:label "tet(Y)" .
+
+um:gen17 rdf:type obo:ARO_3000186 ;
+	rdfs:label "tet(M)" .
+
+um:gen18 rdf:type obo:ARO_3000194 ;
+	rdfs:label "tet(W)" .
+
+um:gen19 rdf:type obo:ARO_3000205 ;
+	rdfs:label "tet(X)" .
+
+um:gen20 rdf:type obo:ARO_3000410 ;
+	rdfs:label "sul1" .
+
+um:gen21 rdf:type obo:ARO_3000412 ;
+	rdfs:label "sul2" .
+
+um:gen22 rdf:type obo:ARO_3000413 ;
+	rdfs:label "sul3" .
+
+um:gen23 rdf:type obo:ARO_3005346;
+	rdfs:label "DfrA34" .
+
+um:gen24 rdf:type obo:ARO_3005350;
+	rdfs:label "DfrB9" .
+
+um:gen25 rdf:type obo:ARO_3000821;
+	rdfs:label "phoPQ" .
+
+
+um:gen26 rdf:type uniprot:A0A1B1P6H0;
+	rdfs:label "bla(GES-5)" .
+
+um:gen27 rdf:type uniprot:Q6XEC0;
+	rdfs:label "bla OXA-48" .
+
+um:gen28 rdf:type uniprot:Q2QC95;
+	rdfs:label "blaoxa-10" .
+
+um:gen29 rdf:type uniprot:A0A2D1HIK6;
+	rdfs:label "msbB" .
+
+um:gen30 rdf:type obo:ARO_3000384;
+	rdfs:label "AcrAB-TolC" .
+
+um:gen31 rdf:type uniprot:A0A0H3GPK2;
+	rdfs:label "ramA" .
+
+um:gen32 rdf:type uniprot:C5IZG9;
+	rdfs:label "oqxB" .
+
+um:gen33 rdf:type uniprot:P00807;
+	rdfs:label "blaZ" .
+
+um:gen34 rdf:type uniprot:P0A042;
+	rdfs:label "blaI" .
+
+um:gen35 rdf:type uniprot:P18357;
+	rdfs:label "blaR1" .
+
+
+um:gen36 rdf:type obo:ARO_3000391;
+	rdfs:label "norA" .
+
+um:gen37 rdf:type uniprot:P0A0J9;
+	rdfs:label "qacA" .
+
+um:gen38 rdf:type obo:ARO_0010003;
+	rdfs:label "SMR" .
+
+
+um:gen39 rdf:type obo:ARO_3000010;
+	rdfs:label "vanA" .
+
+um:gen40 rdf:type obo:ARO_3000071;
+	rdfs:label "vanS" .
+
+um:gen41 rdf:type obo:ARO_3000574;
+	rdfs:label "vanR" .
+
+
+um:gen42 rdf:type uniprot:P0C1U9;
+	rdfs:label "parC" .
+
+um:gen43 rdf:type uniprot:Q2FKQ0;
+	rdfs:label "gyrA" .
+
+um:gen44 rdf:type obo:ARO_3000177 ;
+	rdfs:label "tet(J)" .
+
+#Relaciones
+obo:RO_0000056 rdf:type rdf:Property ;
+           rdfs:label "participates in" .
+
+obo:PATO_0001178 rdf:type rdf:Property ;
+	rdfs:label "resistant to" .
+
+obo:ICEO_0000042 rdf:type rdf:Property ;
+           rdfs:label "has gene participant" .
+
+custom:confers_resistance_to_antibiotic rdf:type rdf:Property ;
+    rdfs:label "confers resistance to antibiotic" .
+
+custom:has_resistance_mechanism rdf:type rdf:Property ;
+    rdfs:label "has resistance mechanism" .
+
+#Mecanismos de resistencia en relacion con antibioticos
+um:Mecanismo1 custom:confers_resistance_to_antibiotic  um:Antibiotico1 .
+um:Mecanismo2 custom:confers_resistance_to_antibiotic  um:Antibiotico1 .
+um:Mecanismo3 custom:confers_resistance_to_antibiotic  um:Antibiotico2 .
+um:Mecanismo4 custom:confers_resistance_to_antibiotic  um:Antibiotico2 .
+um:Mecanismo5 custom:confers_resistance_to_antibiotic  um:Antibiotico3 .
+um:Mecanismo6 custom:confers_resistance_to_antibiotic  um:Antibiotico3 .
+um:Mecanismo7 custom:confers_resistance_to_antibiotic  um:Antibiotico3 .
+um:Mecanismo8 custom:confers_resistance_to_antibiotic  um:Antibiotico4 .
+um:Mecanismo9 custom:confers_resistance_to_antibiotic  um:Antibiotico5 .
+um:Mecanismo10 custom:confers_resistance_to_antibiotic  um:Antibiotico6 .
+um:Mecanismo5 custom:confers_resistance_to_antibiotic  um:Antibiotico7 .
+um:Mecanismo11 custom:confers_resistance_to_antibiotic  um:Antibiotico10 .
+um:Mecanismo12 custom:confers_resistance_to_antibiotic  um:Antibiotico9 .
+um:Mecanismo13 custom:confers_resistance_to_antibiotic  um:Antibiotico9 .
+um:Mecanismo13 custom:confers_resistance_to_antibiotic  um:Antibiotico8 .
+
+
+#Genes que participan en los mecanismos de resistencia
+um:gen1 obo:RO_0000056 um:Mecanismo1 .
+um:gen1 obo:RO_0000056 um:Mecanismo2 .
+um:gen2 obo:RO_0000056 um:Mecanismo2 .
+um:gen2 obo:RO_0000056 um:Mecanismo2 .
+um:gen3 obo:RO_0000056 um:Mecanismo2 .
+um:gen4 obo:RO_0000056 um:Mecanismo3 .
+um:gen5 obo:RO_0000056 um:Mecanismo3 .
+um:gen6 obo:RO_0000056 um:Mecanismo3 .
+um:gen7 obo:RO_0000056 um:Mecanismo3 .
+um:gen8 obo:RO_0000056 um:Mecanismo4 .
+um:gen9 obo:RO_0000056 um:Mecanismo5 .
+um:gen10 obo:RO_0000056 um:Mecanismo5 .
+um:gen11 obo:RO_0000056 um:Mecanismo5 . 
+um:gen12 obo:RO_0000056 um:Mecanismo5 . 
+um:gen13 obo:RO_0000056 um:Mecanismo5 . 
+um:gen14 obo:RO_0000056 um:Mecanismo5 .
+um:gen15 obo:RO_0000056 um:Mecanismo5 . 
+um:gen16 obo:RO_0000056 um:Mecanismo5 .
+um:gen43 obo:RO_0000056 um:Mecanismo5 .
+um:gen17 obo:RO_0000056 um:Mecanismo6 .
+um:gen18 obo:RO_0000056 um:Mecanismo6 .
+um:gen19 obo:RO_0000056 um:Mecanismo7 .
+um:gen20 obo:RO_0000056 um:Mecanismo8 .
+um:gen21 obo:RO_0000056 um:Mecanismo8 .
+um:gen22 obo:RO_0000056 um:Mecanismo8 .
+um:gen23 obo:RO_0000056 um:Mecanismo9 .
+um:gen24 obo:RO_0000056 um:Mecanismo9 .
+um:gen25 obo:RO_0000056 um:Mecanismo10 .
+
+um:gen26 obo:RO_0000056 um:Mecanismo1 .
+um:gen26 obo:RO_0000056 um:Mecanismo2 .
+um:gen27 obo:RO_0000056 um:Mecanismo1 .
+um:gen27 obo:RO_0000056 um:Mecanismo2 .
+um:gen28 obo:RO_0000056 um:Mecanismo1 .
+um:gen28 obo:RO_0000056 um:Mecanismo2 .
+um:gen29 obo:RO_0000056 um:Mecanismo10 .
+um:gen31 obo:RO_0000056 um:Mecanismo10 .
+um:gen30 obo:RO_0000056 um:Mecanismo5 .
+um:gen31 obo:RO_0000056 um:Mecanismo5 .
+um:gen32 obo:RO_0000056 um:Mecanismo5 .
+
+um:gen33 obo:RO_0000056 um:Mecanismo1 .
+um:gen33 obo:RO_0000056 um:Mecanismo2 .
+um:gen34 obo:RO_0000056 um:Mecanismo1 .
+um:gen34 obo:RO_0000056 um:Mecanismo2 .
+um:gen35 obo:RO_0000056 um:Mecanismo1 .
+um:gen35 obo:RO_0000056 um:Mecanismo2 .
+um:gen36 obo:RO_0000056 um:Mecanismo5 .
+um:gen37 obo:RO_0000056 um:Mecanismo5 .
+um:gen38 obo:RO_0000056 um:Mecanismo5 .
+um:gen39 obo:RO_0000056 um:Mecanismo11 .
+um:gen40 obo:RO_0000056 um:Mecanismo11 .
+um:gen41 obo:RO_0000056 um:Mecanismo11 .
+um:gen42 obo:RO_0000056 um:Mecanismo12 .
+um:gen43 obo:RO_0000056 um:Mecanismo13 .
+
+#Genes implicados en las resistencias a antibioticos
+um:gen1 custom:confers_resistance_to_antibiotic um:Antibiotico1 .
+um:gen2 custom:confers_resistance_to_antibiotic um:Antibiotico1 .
+um:gen3 custom:confers_resistance_to_antibiotic um:Antibiotico1 .
+um:gen4 custom:confers_resistance_to_antibiotic um:Antibiotico2 .
+um:gen5 custom:confers_resistance_to_antibiotic um:Antibiotico2 .
+um:gen6 custom:confers_resistance_to_antibiotic um:Antibiotico2 .
+um:gen7 custom:confers_resistance_to_antibiotic um:Antibiotico2 .
+um:gen8 custom:confers_resistance_to_antibiotic um:Antibiotico2 .
+um:gen9 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen10 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen11 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen12 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen13 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen14 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen15 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen16 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen17 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen18 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen19 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen20 custom:confers_resistance_to_antibiotic um:Antibiotico4 .
+um:gen21 custom:confers_resistance_to_antibiotic um:Antibiotico4 .
+um:gen22 custom:confers_resistance_to_antibiotic um:Antibiotico4 .
+um:gen23 custom:confers_resistance_to_antibiotic um:Antibiotico5 .
+um:gen24 custom:confers_resistance_to_antibiotic um:Antibiotico5 .
+um:gen25 custom:confers_resistance_to_antibiotic um:Antibiotico6 .
+um:gen26 custom:confers_resistance_to_antibiotic um:Antibiotico1 .
+um:gen27 custom:confers_resistance_to_antibiotic um:Antibiotico1 .
+um:gen28 custom:confers_resistance_to_antibiotic um:Antibiotico1 .
+um:gen29 custom:confers_resistance_to_antibiotic um:Antibiotico6 .
+um:gen30 custom:confers_resistance_to_antibiotic um:Antibiotico7 .
+um:gen31 custom:confers_resistance_to_antibiotic um:Antibiotico7 .
+um:gen32 custom:confers_resistance_to_antibiotic um:Antibiotico7 .
+um:gen33 custom:confers_resistance_to_antibiotic um:Antibiotico1 .
+um:gen34 custom:confers_resistance_to_antibiotic um:Antibiotico1 .
+um:gen35 custom:confers_resistance_to_antibiotic um:Antibiotico1 .
+um:gen36 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen37 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen38 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+um:gen39 custom:confers_resistance_to_antibiotic um:Antibiotico10 .
+um:gen40 custom:confers_resistance_to_antibiotic um:Antibiotico10 .
+um:gen41 custom:confers_resistance_to_antibiotic um:Antibiotico10 .
+um:gen42 custom:confers_resistance_to_antibiotic um:Antibiotico9 .
+um:gen43 custom:confers_resistance_to_antibiotic um:Antibiotico9 .
+um:gen43 custom:confers_resistance_to_antibiotic um:Antibiotico8 .
+um:gen44 custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+
+#Para E.coli
+#Relacion con antibiotico
+um:Bacteria1 obo:PATO_0001178 um:Antibiotico1 .
+um:Bacteria1 obo:PATO_0001178 um:Antibiotico2 .
+um:Bacteria1 obo:PATO_0001178 um:Antibiotico3 .
+um:Bacteria1 obo:PATO_0001178 um:Antibiotico4 .
+um:Bacteria1 obo:PATO_0001178 um:Antibiotico5 .
+um:Bacteria1 obo:PATO_0001178 um:Antibiotico6 .
+
+#Bacteria E.coli con mecanismo
+um:Bacteria1 custom:has_resistance_mechanism um:Mecanismo1 .
+um:Bacteria1 custom:has_resistance_mechanism um:Mecanismo2 .
+um:Bacteria1 custom:has_resistance_mechanism um:Mecanismo3 .
+um:Bacteria1 custom:has_resistance_mechanism um:Mecanismo4 .
+um:Bacteria1 custom:has_resistance_mechanism um:Mecanismo5 .
+um:Bacteria1 custom:has_resistance_mechanism um:Mecanismo6 .
+um:Bacteria1 custom:has_resistance_mechanism um:Mecanismo7 .
+um:Bacteria1 custom:has_resistance_mechanism um:Mecanismo8 .
+um:Bacteria1 custom:has_resistance_mechanism um:Mecanismo9 .
+um:Bacteria1 custom:has_resistance_mechanism um:Mecanismo10 .
+
+#Genes que pueden intervenir E.coli
+um:Bacteria1 obo:ICEO_0000042 um:gen1 .
+um:Bacteria1 obo:ICEO_0000042 um:gen2 .
+um:Bacteria1 obo:ICEO_0000042 um:gen3 .
+um:Bacteria1 obo:ICEO_0000042 um:gen4 .
+um:Bacteria1 obo:ICEO_0000042 um:gen5 .
+um:Bacteria1 obo:ICEO_0000042 um:gen6 .
+um:Bacteria1 obo:ICEO_0000042 um:gen7 .
+um:Bacteria1 obo:ICEO_0000042 um:gen8 .
+um:Bacteria1 obo:ICEO_0000042 um:gen9  .
+um:Bacteria1 obo:ICEO_0000042 um:gen10 .
+um:Bacteria1 obo:ICEO_0000042 um:gen11 .
+um:Bacteria1 obo:ICEO_0000042 um:gen12 .
+um:Bacteria1 obo:ICEO_0000042 um:gen13 .
+um:Bacteria1 obo:ICEO_0000042 um:gen14 .
+um:Bacteria1 obo:ICEO_0000042 um:gen15 .
+um:Bacteria1 obo:ICEO_0000042 um:gen16 .
+um:Bacteria1 obo:ICEO_0000042 um:gen17 .
+um:Bacteria1 obo:ICEO_0000042 um:gen18 .
+um:Bacteria1 obo:ICEO_0000042 um:gen19 .
+um:Bacteria1 obo:ICEO_0000042 um:gen20 .
+um:Bacteria1 obo:ICEO_0000042 um:gen21 .
+um:Bacteria1 obo:ICEO_0000042 um:gen22 .
+um:Bacteria1 obo:ICEO_0000042 um:gen23 .
+um:Bacteria1 obo:ICEO_0000042 um:gen24 .
+um:Bacteria1 obo:ICEO_0000042 um:gen43 .
+
+
+#Para K.pneumoniae	
+#Relacion con antibiotico
+um:Bacteria2 obo:PATO_0001178 um:Antibiotico1 .
+um:Bacteria2 obo:PATO_0001178 um:Antibiotico6 .
+um:Bacteria2 obo:PATO_0001178 um:Antibiotico7 .
+
+#Bacteria K.pneumoniae con mecanismo
+um:Bacteria2 custom:has_resistance_mechanism um:Mecanismo1 .
+um:Bacteria2 custom:has_resistance_mechanism um:Mecanismo2 .
+um:Bacteria2 custom:has_resistance_mechanism um:Mecanismo10 .
+um:Bacteria2 custom:has_resistance_mechanism um:Mecanismo5 .
+
+#Genes que pueden intervenir K.pneumoniae
+um:Bacteria2 obo:ICEO_0000042 um:gen1 .
+um:Bacteria2 obo:ICEO_0000042 um:gen26 .
+um:Bacteria2 obo:ICEO_0000042 um:gen27 .
+um:Bacteria2 obo:ICEO_0000042 um:gen28 .
+um:Bacteria2 obo:ICEO_0000042 um:gen29 .
+um:Bacteria2 obo:ICEO_0000042 um:gen30 .
+um:Bacteria2 obo:ICEO_0000042 um:gen31 . 
+um:Bacteria2 obo:ICEO_0000042 um:gen25 . 
+um:Bacteria2 obo:ICEO_0000042 um:gen32 .
+
+
+#Para S.aureus
+#Relacion con antibiotico
+um:Bacteria3 obo:PATO_0001178 um:Antibiotico1 . 
+um:Bacteria3 obo:PATO_0001178 um:Antibiotico3 .
+um:Bacteria3 obo:PATO_0001178 um:Antibiotico9 .
+um:Bacteria3 obo:PATO_0001178 um:Antibiotico10 .
+
+#S.aureus con mecanismo
+um:Bacteria3 custom:has_resistance_mechanism um:Mecanismo1 .
+um:Bacteria3 custom:has_resistance_mechanism um:Mecanismo2 .
+um:Bacteria3 custom:has_resistance_mechanism um:Mecanismo5 .
+um:Bacteria3 custom:has_resistance_mechanism um:Mecanismo11 .
+um:Bacteria3 custom:has_resistance_mechanism um:Mecanismo12 .
+um:Bacteria3 custom:has_resistance_mechanism um:Mecanismo13 .
+
+#Genes que puede intervenir de S.aureus
+um:Bacteria3 obo:ICEO_0000042 um:gen33 .
+um:Bacteria3 obo:ICEO_0000042 um:gen34 .
+um:Bacteria3 obo:ICEO_0000042 um:gen35 .
+um:Bacteria3 obo:ICEO_0000042 um:gen36 .
+um:Bacteria3 obo:ICEO_0000042 um:gen37 .
+um:Bacteria3 obo:ICEO_0000042 um:gen38 .
+um:Bacteria3 obo:ICEO_0000042 um:gen39 .
+um:Bacteria3 obo:ICEO_0000042 um:gen40 .
+um:Bacteria3 obo:ICEO_0000042 um:gen41 .
+um:Bacteria3 obo:ICEO_0000042 um:gen42 .
+um:Bacteria3 obo:ICEO_0000042 um:gen43 .
+
+#Para P.aeruginosa
+#Relacion con antibiotico
+um:Bacteria4 obo:PATO_0001178 um:Antibiotico1 .
+um:Bacteria4 obo:PATO_0001178 um:Antibiotico8 .
+um:Bacteria4 obo:PATO_0001178 um:Antibiotico6 .
+
+#P.aeruginosa con mecanismo
+um:Bacteria4 custom:has_resistance_mechanism um:Mecanismo1 .
+um:Bacteria4 custom:has_resistance_mechanism um:Mecanismo2  .
+um:Bacteria4 custom:has_resistance_mechanism um:Mecanismo13 .
+um:Bacteria4 custom:has_resistance_mechanism um:Mecanismo10 .
+um:Bacteria4 custom:has_resistance_mechanism um:Mecanismo12 .
+
+
+#Genes que pueden intervenir S.aureus
+um:Bacteria4 obo:ICEO_0000042 um:gen2 .
+um:Bacteria4 obo:ICEO_0000042 um:gen43 .
+um:Bacteria4 obo:ICEO_0000042 um:gen25 .
+um:Bacteria4 obo:ICEO_0000042 um:gen42 . 
