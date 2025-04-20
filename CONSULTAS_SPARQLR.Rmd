@@ -1,0 +1,161 @@
+---
+title: "ConsultasSPARQLRl"
+output: html_document
+date: "2025-02-08"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Cargo la librería
+```{r}
+library(SPARQL)
+```
+
+Defino endpoint
+```{r}
+endpoint <- "http://dayhoff.inf.um.es:3046/blazegraph/namespace/mygraph/sparql"
+```
+
+#Consulta1.¿Qué bacterias son resistentes a antibióticos con tetraciclina y qué genes podrían intervenir en esa resistencia?
+```{r}
+query <- "
+PREFIX um: <http://um.es/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX custom: <http://um.es/ontology/custom#>
+
+SELECT DISTINCT ?bacteria ?bacteriaLabel ?gene ?geneLabel
+WHERE {
+  ?bacteria obo:PATO_0001178 um:Antibiotico3 .
+  ?bacteria rdfs:label ?bacteriaLabel .
+  ?bacteria obo:ICEO_0000042 ?gene .
+  ?gene rdfs:label ?geneLabel .
+  ?gene custom:confers_resistance_to_antibiotic um:Antibiotico3 .
+}
+"
+
+# Ejecuta la consulta
+query_result <- SPARQL(endpoint, query)
+
+# Visualiza los resultados
+View(query_result$results)
+```
+
+#Consulta2.¿Qué bacterias tienen el gen “phoPQ”, en qué mecanismo de resistencia participa este gen y a qué antibiótico les confiere resistencia?
+```{r}
+query2 <- "
+PREFIX um: <http://um.es/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX custom: <http://um.es/ontology/custom#>
+
+SELECT DISTINCT ?bacteria ?bacteriaLabel ?antibiotic ?antibioticLabel ?mechanism ?mechanismLabel
+WHERE {
+
+  ?bacteria obo:ICEO_0000042 ?gene .
+  
+  # Filtra el gen phoPQ asegurando que se toma en cuenta su etiqueta sin importar mayúsculas/minúsculas o idioma
+  ?gene rdfs:label ?geneLabel .
+  FILTER (LCASE(STR(?geneLabel)) = \"phopq\")
+  
+  # Se obtiene el antibiótico al que el gen confiere resistencia
+  ?gene custom:confers_resistance_to_antibiotic ?antibiotic .
+  
+  # Se obtiene el mecanismo en el que participa el gen
+  ?gene obo:RO_0000056 ?mechanism .
+  
+  # Se recuperan las etiquetas legibles para cada recurso
+  ?bacteria rdfs:label ?bacteriaLabel .
+  ?antibiotic rdfs:label ?antibioticLabel .
+  ?mechanism rdfs:label ?mechanismLabel .
+}
+"
+
+query_result2 <- SPARQL(endpoint, query2)
+View(query_result2$results)
+
+
+```
+
+#Consulta3.¿Qué genes están registrados que puedan participar en el mecanismo de eflujo de antibiótico? 
+```{r}
+query3 <- "
+PREFIX um: <http://um.es/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+SELECT DISTINCT ?gene ?geneLabel
+WHERE {
+  # Selecciona el mecanismo con label 'antibiotic efflux'
+  ?mechanism rdfs:label \"antibiotic efflux\" .
+  
+  # Busca los genes que participan en ese mecanismo
+  ?gene obo:RO_0000056 ?mechanism .
+  
+  # Recupera la etiqueta legible del gen
+  ?gene rdfs:label ?geneLabel .
+}
+"
+
+query_result3 <- SPARQL(endpoint, query3)
+View(query_result3$results)
+
+```
+
+#Consulta4.Dado el mecanismo de resistencia cuyo label es "hydrolysis of beta-lactam antibiotic by serine beta-lactamase", listar las bacterias que presentan este mecanismo y, para cada una, los genes que participan en él.
+```{r}
+query4 <- "
+PREFIX um: <http://um.es/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX custom: <http://um.es/ontology/custom#>
+
+SELECT DISTINCT ?bacteria ?bacteriaLabel ?gene ?geneLabel
+WHERE {
+  # Seleccionamos el mecanismo por su label específico
+  ?mechanism rdfs:label \"hydrolysis of beta-lactam antibiotic by serine beta-lactamase\" .
+  
+  # Obtenemos los genes que participan en ese mecanismo
+  ?gene obo:RO_0000056 ?mechanism .
+
+  # Obtenemos las bacterias asociadas a esos genes
+  ?bacteria obo:ICEO_0000042 ?gene .
+
+  # Recuperamos las etiquetas legibles de los recursos
+  ?bacteria rdfs:label ?bacteriaLabel .
+  ?gene rdfs:label ?geneLabel .
+}
+"
+query_result4 <- SPARQL(endpoint, query4)
+View(query_result4$results)
+```
+
+#Consulta5.Se pretende buscar genes que confieran multirresistencia a antibióticos. Listar genes que confieren resistencia a más de un antibiótico.
+```{r}
+query5 <- "
+PREFIX um: <http://um.es/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX custom: <http://um.es/ontology/custom#>
+
+SELECT ?gene ?geneLabel 
+       (GROUP_CONCAT(DISTINCT ?antibioticLabel; separator=\", \") AS ?antibiotics)
+       (COUNT(DISTINCT ?antibiotic) AS ?numAntibiotics)
+WHERE {
+  # Se obtienen los genes que confieren resistencia a algún antibiótico
+  ?gene custom:confers_resistance_to_antibiotic ?antibiotic .
+  
+  # Se extraen las etiquetas de los genes y de los antibióticos
+  ?gene rdfs:label ?geneLabel .
+  ?antibiotic rdfs:label ?antibioticLabel .
+}
+GROUP BY ?gene ?geneLabel
+# Solo se seleccionan aquellos genes asociados a más de un antibiótico
+HAVING (COUNT(DISTINCT ?antibiotic) > 1)
+"
+
+query_result5 <- SPARQL(endpoint, query5)
+View(query_result5$results)
+```
+
