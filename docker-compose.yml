@@ -1,0 +1,15 @@
+version: "3"
+services:
+   linked_data_server:
+      image: ghcr.io/zazuko/trifid
+      ports:
+         - "8186:8080"
+      environment:
+         SPARQL_ENDPOINT_URL: "http://dayhoff.inf.um.es:3046/blazegraph/namespace/graph/sparql"
+         DATASET_BASE_URL: "http://um.es/resource/"
+         #DATASET_BASE_URL: "http://fair/data/"
+
+   sparql_endpoint:
+      image: blazegraph
+      ports:
+         - "3046:9999"
