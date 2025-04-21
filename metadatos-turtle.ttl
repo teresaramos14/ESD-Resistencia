@@ -1,0 +1,52 @@
+@prefix um: <http://um.es/resource/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix custom: <http://um.es/ontology/custom#> .
+@prefix chebi: <http://purl.obolibrary.org/obo/CHEBI_> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix taxon: <http://uniprot.org/taxonomy/> .
+@prefix uniprot: <http://purl.uniprot.org/uniprot/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://um.es/data/umu/ResistenciaMicrobiana> a dcat:Dataset ;
+    rdfs:label "Dataset FAIR Resistencia a Antibióticos de interés - Universidad de Murcia"@es ;
+    dct:publisher <https://www.um.es/> ;
+    dct:creator <https://um.es/people/teresaramos> ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dcat:distribution <https://um.es/data/umu/distribution/resistencia-nquads> ,
+                      <https://um.es/data/umu/distribution/resistencia-sparql> ;
+    foaf:primaryTopic <https://um.es/data/resistencia_microbiana> ;
+    sd:namedGraph <https://um.es/graph/ResistenciaMicrobiana> ;
+    dct:issued "2025-04-21"^^xsd:date ;
+    prov:wasGeneratedBy <https://um.es/data/umu/workflow/resitenciamicrobiana> .
+
+<https://um.es/people/teresaramos> a foaf:Person, vcard:Individual ;
+    foaf:name "Teresa Ramos" ;
+    foaf:mbox <mailto:teresa.r.a@um.es> ;
+    vcard:fn "Teresa Ramos" ;
+    vcard:hasEmail <mailto:teresa.r.a@um.es> .
+
+<https://um.es/data/umu/distribution/resistencia-nquads> a dcat:Distribution ;
+    dcat:downloadURL <http://dayhoff.inf.um.es/files/resistencia.nq> ;
+    dct:format <http://publications.europa.eu/resource/authority/file-type/NQ> ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> .
+
+<https://um.es/data/umu/distribution/resistencia-sparql> a dcat:Distribution ;
+    dcat:accessURL <http://dayhoff.inf.um.es:3046/blazegraph/namespace/graph/sparql> ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> .
+
+<https://um.es/graph/ResistenciaMicrobiana> a sd:NamedGraph ;
+    rdfs:label "Grafo RDF Resistencia a Antibióticos de interés"@es ;
+    dct:description "Grafo RDF con bacterias seleccionadas de interés biomédico, su resistencia a antibióticos y mecanismos de resistencia FAIR."@es .
+
+<http://creativecommons.org/licenses/by/4.0/> a cc:License ;
+    cc:permits cc:Distribution, cc:Reproduction, cc:DerivativeWorks ;
+    cc:requires cc:Notice ;
+    cc:legalcode <https://creativecommons.org/licenses/by/4.0/legalcode> .
