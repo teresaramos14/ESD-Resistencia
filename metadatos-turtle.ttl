@@ -17,12 +17,12 @@
     dct:license <http://creativecommons.org/licenses/by/4.0/> ;
     dcat:distribution <https://um.es/data/umu/distribution/resistencia-nquads> ,
                       <https://um.es/data/umu/distribution/resistencia-sparql> ;
-    sd:namedGraph <https://um.es/graph/ResistenciaMicrobiana> ;
+    sd:namedGraph <https://um.es/graph/ResistenciaMicrobiana> .
 
 
 <https://um.es/people/teresaramos> a foaf:Person, vcard:Individual ;
     foaf:name "Teresa Ramos" ;
-    foaf:mbox <mailto:teresa.r.a@um.es> ;
+    foaf:mbox <mailto:teresa.r.a@um.es> .
 
 
 <https://um.es/data/umu/distribution/resistencia-nquads> a dcat:Distribution ;
